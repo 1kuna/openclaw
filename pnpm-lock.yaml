@@ -10,6 +10,10 @@ overrides:
   '@hono/node-server>hono': 4.11.7
   hono: 4.11.7
   qs: 6.14.1
+  '@mariozechner/pi-agent-core': file:../pi-mono/packages/agent
+  '@mariozechner/pi-ai': file:../pi-mono/packages/ai
+  '@mariozechner/pi-coding-agent': file:../pi-mono/packages/coding-agent
+  '@mariozechner/pi-tui': file:../pi-mono/packages/tui
   '@sinclair/typebox': 0.34.47
   tar: 7.5.7
   tough-cookie: 4.1.3
@@ -49,17 +53,17 @@ importers:
         specifier: 1.2.0-beta.3
         version: 1.2.0-beta.3
       '@mariozechner/pi-agent-core':
-        specifier: ^0.52.6
-        version: 0.52.6(ws@8.19.0)(zod@4.3.6)
+        specifier: file:../pi-mono/packages/agent
+        version: file:../pi-mono/packages/agent(ws@8.19.0)(zod@4.3.6)
       '@mariozechner/pi-ai':
-        specifier: ^0.52.6
-        version: 0.52.6(ws@8.19.0)(zod@4.3.6)
+        specifier: file:../pi-mono/packages/ai
+        version: file:../pi-mono/packages/ai(ws@8.19.0)(zod@4.3.6)
       '@mariozechner/pi-coding-agent':
-        specifier: ^0.52.6
-        version: 0.52.6(ws@8.19.0)(zod@4.3.6)
+        specifier: file:../pi-mono/packages/coding-agent
+        version: file:../pi-mono/packages/coding-agent(ws@8.19.0)(zod@4.3.6)
       '@mariozechner/pi-tui':
-        specifier: ^0.52.6
-        version: 0.52.6
+        specifier: file:../pi-mono/packages/tui
+        version: file:../pi-mono/packages/tui
       '@mozilla/readability':
         specifier: ^0.6.0
         version: 0.6.0
@@ -1467,22 +1471,22 @@ packages:
     resolution: {integrity: sha512-faGUlTcXka5l7rv0lP3K3vGW/ejRuOS24RR2aSFWREUQqzjgdsuWNo/IiPqL3kWRGt6Ahl2+qcDAwtdeWeuGUw==}
     hasBin: true
 
-  '@mariozechner/pi-agent-core@0.52.6':
-    resolution: {integrity: sha512-jeCjq8tAFCcz+yErcxd/0vUGZ0HDhpFvnv8qgQnP3nF9eNINvtHahAVeG/IVR0N4iyAdiXJJSNoVJ+w3zZrQRA==}
+  '@mariozechner/pi-agent-core@file:../pi-mono/packages/agent':
+    resolution: {directory: ../pi-mono/packages/agent, type: directory}
     engines: {node: '>=20.0.0'}
 
-  '@mariozechner/pi-ai@0.52.6':
-    resolution: {integrity: sha512-4oqhoFvYh5GQI8TzxhrXs3tXLOAw+/VvqEQRDJzo0k7Rye0ONWOLcaHAUSfBtOTn15gMUh6m+SjtWXmKVisdBg==}
-    engines: {node: '>=20.0.0'}
-    hasBin: true
-
-  '@mariozechner/pi-coding-agent@0.52.6':
-    resolution: {integrity: sha512-4OSe6o+Fxol/q9tYx6qZanG4V/hPoWggWd9PETrn/V4juJRP5d3fujms9AetoTnM39jI6sUta98eT2iH3X5njA==}
+  '@mariozechner/pi-ai@file:../pi-mono/packages/ai':
+    resolution: {directory: ../pi-mono/packages/ai, type: directory}
     engines: {node: '>=20.0.0'}
     hasBin: true
 
-  '@mariozechner/pi-tui@0.52.6':
-    resolution: {integrity: sha512-cLCSgkoJv25nll72YB+/f7ZDJL7Ttrs+HwxFLWYegxKq2h+4waxLIbZTiSn0QONSjIMg5SMRj3iOBAO/oJ9xow==}
+  '@mariozechner/pi-coding-agent@file:../pi-mono/packages/coding-agent':
+    resolution: {directory: ../pi-mono/packages/coding-agent, type: directory}
+    engines: {node: '>=20.0.0'}
+    hasBin: true
+
+  '@mariozechner/pi-tui@file:../pi-mono/packages/tui':
+    resolution: {directory: ../pi-mono/packages/tui, type: directory}
     engines: {node: '>=20.0.0'}
 
   '@matrix-org/matrix-sdk-crypto-nodejs@0.4.0':
@@ -6783,9 +6787,9 @@ snapshots:
       std-env: 3.10.0
       yoctocolors: 2.1.2
 
-  '@mariozechner/pi-agent-core@0.52.6(ws@8.19.0)(zod@4.3.6)':
+  '@mariozechner/pi-agent-core@file:../pi-mono/packages/agent(ws@8.19.0)(zod@4.3.6)':
     dependencies:
-      '@mariozechner/pi-ai': 0.52.6(ws@8.19.0)(zod@4.3.6)
+      '@mariozechner/pi-ai': file:../pi-mono/packages/ai(ws@8.19.0)(zod@4.3.6)
     transitivePeerDependencies:
       - '@modelcontextprotocol/sdk'
       - aws-crt
@@ -6795,7 +6799,7 @@ snapshots:
       - ws
       - zod
 
-  '@mariozechner/pi-ai@0.52.6(ws@8.19.0)(zod@4.3.6)':
+  '@mariozechner/pi-ai@file:../pi-mono/packages/ai(ws@8.19.0)(zod@4.3.6)':
     dependencies:
       '@anthropic-ai/sdk': 0.73.0(zod@4.3.6)
       '@aws-sdk/client-bedrock-runtime': 3.984.0
@@ -6819,12 +6823,12 @@ snapshots:
       - ws
       - zod
 
-  '@mariozechner/pi-coding-agent@0.52.6(ws@8.19.0)(zod@4.3.6)':
+  '@mariozechner/pi-coding-agent@file:../pi-mono/packages/coding-agent(ws@8.19.0)(zod@4.3.6)':
     dependencies:
       '@mariozechner/jiti': 2.6.5
-      '@mariozechner/pi-agent-core': 0.52.6(ws@8.19.0)(zod@4.3.6)
-      '@mariozechner/pi-ai': 0.52.6(ws@8.19.0)(zod@4.3.6)
-      '@mariozechner/pi-tui': 0.52.6
+      '@mariozechner/pi-agent-core': file:../pi-mono/packages/agent(ws@8.19.0)(zod@4.3.6)
+      '@mariozechner/pi-ai': file:../pi-mono/packages/ai(ws@8.19.0)(zod@4.3.6)
+      '@mariozechner/pi-tui': file:../pi-mono/packages/tui
       '@silvia-odwyer/photon-node': 0.3.4
       chalk: 5.6.2
       cli-highlight: 2.1.11
@@ -6848,7 +6852,7 @@ snapshots:
       - ws
       - zod
 
-  '@mariozechner/pi-tui@0.52.6':
+  '@mariozechner/pi-tui@file:../pi-mono/packages/tui':
     dependencies:
       '@types/mime-types': 2.1.4
       chalk: 5.6.2
