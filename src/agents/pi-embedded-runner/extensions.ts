@@ -78,7 +78,7 @@ export function buildEmbeddedExtensionPaths(params: {
   modelId: string;
   model: Model<Api> | undefined;
 }): string[] {
-  const paths: string[] = [];
+  const paths: string[] = [resolvePiExtensionPath("transcript-sanitize")];
   if (resolveCompactionMode(params.cfg) === "safeguard") {
     const compactionCfg = params.cfg?.agents?.defaults?.compaction;
     const contextWindowInfo = resolveContextWindowInfo({
