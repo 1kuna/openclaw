@@ -797,11 +797,15 @@ export async function runEmbeddedPiAgent(
           }
 
           const usage = toNormalizedUsage(usageAccumulator);
+          const promptUsage = normalizeUsage(
+            (attempt.lastAssistant?.usage ?? undefined) as UsageLike,
+          );
           const agentMeta: EmbeddedPiAgentMeta = {
             sessionId: sessionIdUsed,
             provider: lastAssistant?.provider ?? provider,
             model: lastAssistant?.model ?? model.id,
             usage,
+            promptUsage,
             compactionCount: autoCompactionCount > 0 ? autoCompactionCount : undefined,
           };
 
