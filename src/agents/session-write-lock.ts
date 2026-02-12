@@ -13,6 +13,8 @@ type HeldLock = {
   lockPath: string;
 };
 
+export const DEFAULT_SESSION_LOCK_TIMEOUT_MS = 120_000;
+
 const HELD_LOCKS = new Map<string, HeldLock>();
 const CLEANUP_SIGNALS = ["SIGINT", "SIGTERM", "SIGQUIT", "SIGABRT"] as const;
 type CleanupSignal = (typeof CLEANUP_SIGNALS)[number];
@@ -117,7 +119,7 @@ export async function acquireSessionWriteLock(params: {
   release: () => Promise<void>;
 }> {
   registerCleanupHandlers();
-  const timeoutMs = params.timeoutMs ?? 10_000;
+  const timeoutMs = params.timeoutMs ?? DEFAULT_SESSION_LOCK_TIMEOUT_MS;
   const staleMs = params.staleMs ?? 30 * 60 * 1000;
   const sessionFile = path.resolve(params.sessionFile);
   const sessionDir = path.dirname(sessionFile);

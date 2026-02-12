@@ -135,6 +135,7 @@ export const AgentDefaultsSchema = z
         z.literal("message"),
       ])
       .optional(),
+    sessionLockTimeoutMs: z.number().int().positive().optional(),
     heartbeat: HeartbeatSchema,
     maxConcurrent: z.number().int().positive().optional(),
     subagents: z

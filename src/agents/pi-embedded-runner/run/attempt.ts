@@ -420,6 +420,7 @@ export async function runEmbeddedAttempt(
 
     const sessionLock = await acquireSessionWriteLock({
       sessionFile: params.sessionFile,
+      timeoutMs: params.config?.agents?.defaults?.sessionLockTimeoutMs,
     });
 
     let sessionManager: ReturnType<typeof guardSessionManager> | undefined;
